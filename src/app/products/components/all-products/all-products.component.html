@@ -1,0 +1,27 @@
+<div class="box mt-5" >
+
+  <div class="my-2 w-25" *ngIf="!loading">
+ <app-select [data]="productscategories" [title]="'category'" (selectedData)="filterCategory($event)"></app-select>
+  </div>
+
+  <div class="row" *ngIf="!loading">
+    <div class="col-md-3 col-sm-12" *ngFor="let item of products">
+      <div class="card col my-2">
+        <img src={{item.image}} class="card-img-top" alt="{{item.title}}">
+        <div class="card-body">
+          <h5 class="card-title">{{item.title|cutString:10}}</h5>
+          <p class="card-text">{{item.description|cutString:50}}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <button type="button" class="btn btn-primary">Add To Cart</button>
+            <p>{{item.price|currency}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="text-center w-100" *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div>
+
+</div>
