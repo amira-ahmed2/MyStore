@@ -4,7 +4,7 @@
         <h5 class="card-title">{{data.title|cutString:10}}</h5>
         <p class="card-text">{{data.description|cutString:50}}</p>
         <div class="d-flex justify-content-between align-datas-center">
-            <button type="button" class="btn btn-primary">Add To Cart</button>
+            <button type="button" class="btn btn-primary" (click)="add()">Add To Cart</button>
             <p>{{data.price|currency}}</p>
         </div>
     </div>
