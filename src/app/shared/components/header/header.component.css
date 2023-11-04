@@ -1,0 +1,23 @@
+nav {
+  background: linear-gradient(to right, #2980b9, #6dd5fa, #c5c4c4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+}
+nav .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+nav .content ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  margin: 0;
+}
+nav .content ul li {
+  cursor: pointer;
+  font-size: 22px;
+  color: #fff;
+  text-decoration: none;
+}/*# sourceMappingURL=header.component.css.map */

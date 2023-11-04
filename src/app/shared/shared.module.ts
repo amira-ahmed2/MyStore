@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CutStringPipe } from './pipes/cut-string.pipe';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectComponent } from './components/select/select.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,13 +22,15 @@ import { SelectComponent } from './components/select/select.component';
     CommonModule,
     RouterModule,
     HttpClientModule,
-
+    FormsModule,
+    
   ],
   exports: [
     HeaderComponent,
     CutStringPipe,
     SpinnerComponent,
-    SelectComponent
+    SelectComponent,
+    FormsModule
   ]
 })
 export class SharedModule { }

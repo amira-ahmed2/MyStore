@@ -56,14 +56,12 @@ this.serviceProduct.getProductsByCategory(value).subscribe({next:(res:any)=>{
 
 }
 
-trackByFun (index:number,item:any){
-  return item.id
-}
+
 
 addToCart(event:any){
   if("cart" in localStorage){
     this.cartProducts = JSON.parse(localStorage.getItem("cart")!)
-    let exist = this.cartProducts.find(item => item.id == event.id)
+    let exist = this.cartProducts.find(item => item.item.id == event.item.id)
     if(exist){
       alert("the product already in your cart")
     }else{
