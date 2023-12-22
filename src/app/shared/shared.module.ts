@@ -7,6 +7,7 @@ import { CutStringPipe } from './pipes/cut-string.pipe';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectComponent } from './components/select/select.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     HttpClientModule,
     FormsModule,
+    BrowserModule
     
   ],
   exports: [

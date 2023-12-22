@@ -1,8 +1,14 @@
 <div class="card col my-2">
-    <img src={{data.image}} class="card-img-top" alt="{{data.title}}">
-    <div class="card-body">
+
+    <div class="card-body" [routerLink]="'/details/' + data.id">
+        <img src={{data.image}} class="card-img-top" alt="{{data.title}}" >
+
         <h5 class="card-title">{{data.title|cutString:10}}</h5>
         <p class="card-text">{{data.description|cutString:50}}</p>
+        <!-- button -->
+
+    </div>
+    <div class="card-footer bg-transparent border border-top-0">
         <div class="d-flex justify-content-between align-datas-center">
             <button type="button" class="btn btn-primary"  *ngIf="!addBoolean" (click)="addBoolean = true">Add To Cart</button>
          <div class="d-flex justify-content-between align-datas-center w-50" *ngIf="addBoolean">

@@ -1,1 +1,20 @@
 <p>cart works!</p>
+<div class="container">
+    <div *ngIf="cart.length == 0; else cartItems">
+      <p>Your cart is empty.</p>
+    </div>
+    <ng-template #cartItems>
+      <div *ngFor="let item of cart" class="cart-item">
+        <img [src]="item.imageUrl" alt="{{ item.name }}" class="cart-item-image">
+        <div class="cart-item-details">
+          <h4>{{ item.name }}</h4>
+          <p>Price: ${{ item.price }}</p>
+          <p>Quantity: {{ item.quantity }}</p>
+        </div>
+      </div>
+      <div class="cart-total">
+        <p>Total: ${{ calculateTotal() }}</p>
+      </div>
+    </ng-template>
+  </div>
+  
