@@ -13,7 +13,7 @@
             <button type="button" class="btn btn-primary"  *ngIf="!addBoolean" (click)="addBoolean = true">Add To Cart</button>
          <div class="d-flex justify-content-between align-datas-center w-50" *ngIf="addBoolean">
             <input type="number" name="" id="" class="form-control" [(ngModel)]="amount">
-            <button type="button" class="btn btn-danger" (click)="add()">Add</button>
+            <button type="button" class="btn btn-danger" (click)="add(); addBoolean = false">Add</button>
          </div>
             <p>{{data.price|currency}}</p>
         </div>

@@ -1,20 +1,37 @@
-<p>cart works!</p>
 <div class="container">
     <div *ngIf="cart.length == 0; else cartItems">
       <p>Your cart is empty.</p>
     </div>
     <ng-template #cartItems>
+      <div class="d-flex justify-content-between align-items-center flex-wrap py-4">
+        <p>You have {{cart.length}} items in your cart</p>
+        <button type="button" class="btn btn-outline-primary">Clear Shopping Cart</button>
+
+      </div>
       <div *ngFor="let item of cart" class="cart-item">
-        <img [src]="item.imageUrl" alt="{{ item.name }}" class="cart-item-image">
+        <img [src]="item.item.image" alt="{{ item.title }}" class="cart-item-image">
         <div class="cart-item-details">
-          <h4>{{ item.name }}</h4>
-          <p>Price: ${{ item.price }}</p>
-          <p>Quantity: {{ item.quantity }}</p>
+          <h4>{{ item.item.title }}</h4>
+          <p>Price: {{ item.item.price }} LE</p>
+          <div class="d-flex flex-lg-nowrap flex-wrap  align-items-center col-12">
+            <p class="pt-3 pe-2"> Quantity: </p>
+            <button class="btn btn-dark" type="button">+</button>
+            <input type="number" class="form-control w-25 mx-3" min="1" [(ngModel)]="item.quantity"/>
+
+            <button class="btn btn-dark" type="button">-</button>
+
+          </div>
+          <p>Total: {{ item.item.price * item.quantity}} LE</p>
+          <button type="button" class="btn btn-danger">Delete</button>
         </div>
       </div>
-      <div class="cart-total">
-        <p>Total: ${{ calculateTotal() }}</p>
+      <div class="py-5 d-flex align-items-center justify-content-end flex-wrap">
+        <p class=" pe-3 pt-3">Total: {{ calculateTotal() }} LE</p>
+        <button type="button" class="btn btn-success">Order Now</button>
+
       </div>
     </ng-template>
+    <div class="alert alert-success text-capitalize" role="alert">
+      <strong>Well done!</strong>your order is successfully send
+    </div>
   </div>
-  

@@ -1,19 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/shared/model/product';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent {
-  cart = [
-    { id: 1, name: 'Product 1', price: 20, quantity: 2, imageUrl: 'product1.jpg' },
-    { id: 1, name: '33333 1', price: 20, quantity: 2, imageUrl: '3.jpg' },
+export class CartComponent implements OnInit {
+  cart: any[]=[]
+  ngOnInit(){
+    this.getCartProduct();
+  }
 
-    // Add more items as needed
-  ];
 
   calculateTotal(): number {
-    return this.cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    return this.cart.reduce((acc, item) => acc + item.item.price * item.quantity, 0);
+  }
+  getCartProduct(){
+    if("cart" in localStorage){
+      this.cart = JSON.parse(localStorage.getItem("cart")!)
+      console.log(this.cart)
+    }
   }
 }
