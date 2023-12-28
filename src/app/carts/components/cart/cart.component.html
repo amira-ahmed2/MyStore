@@ -8,17 +8,17 @@
         <button type="button" class="btn btn-outline-primary">Clear Shopping Cart</button>
 
       </div>
-      <div *ngFor="let item of cart" class="cart-item">
+      <div *ngFor="let item of cart ; let index = index" class="cart-item">
         <img [src]="item.item.image" alt="{{ item.title }}" class="cart-item-image">
         <div class="cart-item-details">
           <h4>{{ item.item.title }}</h4>
           <p>Price: {{ item.item.price }} LE</p>
           <div class="d-flex flex-lg-nowrap flex-wrap  align-items-center col-12">
             <p class="pt-3 pe-2"> Quantity: </p>
-            <button class="btn btn-dark" type="button">+</button>
-            <input type="number" class="form-control w-25 mx-3" min="1" [(ngModel)]="item.quantity"/>
+            <button class="btn btn-dark" type="button" (click)="addAmount(index)">+</button>
+            <input type="number" class="form-control w-25 mx-3" [min]="1" [max]="item.item.rating.count" [(ngModel)]="item.quantity"/>
 
-            <button class="btn btn-dark" type="button">-</button>
+            <button class="btn btn-dark" type="button" (click)="minAmount(index)">-</button>
 
           </div>
           <p>Total: {{ item.item.price * item.quantity}} LE</p>

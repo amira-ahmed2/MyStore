@@ -22,4 +22,25 @@ export class CartComponent implements OnInit {
       console.log(this.cart)
     }
   }
+
+  minAmount(index:number){
+    if (this.cart[index].quantity > 1) {
+      this.cart[index].quantity -= 1;
+    }
+    localStorage.setItem("cart",JSON.stringify(this.cart));
+
+
+  }
+  addAmount(index:number){
+    // console.log(this.cart[index].item.rating.count)
+    if (this.cart[index].quantity < 20) {
+      this.cart[index].quantity += 1;
+    }
+    localStorage.setItem("cart",JSON.stringify(this.cart));
+
+  }
+  detactChange(){
+    localStorage.setItem("cart",JSON.stringify(this.cart));
+
+  }
 }
