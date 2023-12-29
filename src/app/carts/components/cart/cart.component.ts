@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/shared/model/product';
+import { ProductsCartI } from 'src/app/shared/model/products-cart-i';
+import { CartsService } from '../../services/carts.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,7 +9,12 @@ import { Product } from 'src/app/shared/model/product';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+  model!:ProductsCartI
   cart: any[]=[]
+  successOrder:boolean = false
+
+  constructor(private service:CartsService){}
+
   ngOnInit(){
     this.getCartProduct();
   }
@@ -55,6 +62,34 @@ export class CartComponent implements OnInit {
 
   updateCart(){
     localStorage.setItem("cart",JSON.stringify(this.cart));
+  }
+
+  addCart(){
+    let productsCart = this.cart.map(item => {
+      return{
+        productId:item.item.id,
+        quantity:item.quantity
+      }
+    })
+   
+    this.model= {
+      userId:5,
+      date: new Date(),
+      products:productsCart
+    }
+    this.service.addCart(this.model).subscribe({next:(res:any)=>{
+      console.log(res)
+      this.successOrder = true
+      setTimeout(() => {
+        this.successOrder = false;
+      }, 10000); // 10 seconds in milliseconds
+  
+    },error:(er)=>{
+      alert(er.massege);
+      this.successOrder=false;
+      
+  
+    }})
   }
 }
 

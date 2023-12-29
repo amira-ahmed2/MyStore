@@ -1,3 +1,6 @@
+<div class="alert alert-success text-capitalize container my-5" role="alert" *ngIf="successOrder">
+  <strong>Well done!</strong>your order is successfully send
+</div>
 <div class="container">
     <div *ngIf="cart.length == 0; else cartItems">
       <p>Your cart is empty.</p>
@@ -27,11 +30,10 @@
       </div>
       <div class="py-5 d-flex align-items-center justify-content-end flex-wrap">
         <p class=" pe-3 pt-3">Total: {{ calculateTotal() }} LE</p>
-        <button type="button" class="btn btn-success">Order Now</button>
+        <button type="button" class="btn btn-success" (click)="addCart()">Order Now</button>
 
       </div>
     </ng-template>
-    <div class="alert alert-success text-capitalize" role="alert">
-      <strong>Well done!</strong>your order is successfully send
-    </div>
+    
   </div>
+

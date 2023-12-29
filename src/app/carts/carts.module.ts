@@ -3,10 +3,6 @@ import { CommonModule } from '@angular/common';
 import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
-import { RouterModule } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
 
 
 @NgModule({
@@ -15,8 +11,9 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    SharedModule
-    
+    SharedModule,
+    HttpClientModule,
+
   ]
 })
 export class CartsModule { }
