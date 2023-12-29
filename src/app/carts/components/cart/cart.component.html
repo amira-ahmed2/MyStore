@@ -5,7 +5,7 @@
     <ng-template #cartItems>
       <div class="d-flex justify-content-between align-items-center flex-wrap py-4">
         <p>You have {{cart.length}} items in your cart</p>
-        <button type="button" class="btn btn-outline-primary">Clear Shopping Cart</button>
+        <button type="button" class="btn btn-outline-primary" (click)="clearCart()">Clear Shopping Cart</button>
 
       </div>
       <div *ngFor="let item of cart ; let index = index" class="cart-item">

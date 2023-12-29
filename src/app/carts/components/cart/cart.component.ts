@@ -47,6 +47,12 @@ export class CartComponent implements OnInit {
     this.cart.splice(index, 1)
     this.updateCart()
   }
+
+  clearCart(){
+    this.cart = []
+    this.updateCart()
+  }
+
   updateCart(){
     localStorage.setItem("cart",JSON.stringify(this.cart));
   }
