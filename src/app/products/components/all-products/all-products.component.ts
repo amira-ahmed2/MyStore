@@ -10,7 +10,7 @@ import { CartProductsI } from 'src/app/shared/model/cart-products-i';
 })
 export class AllProductsComponent implements OnInit {
   products!:Product[];
-  productscategories!:any[];
+  productscategories!:string[];
   loading:boolean = false;
   cartProducts:CartProductsI[]=[]
 constructor(private serviceProduct:ProductsService){}
