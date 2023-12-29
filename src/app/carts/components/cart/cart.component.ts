@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
     if (this.cart[index].quantity > 1) {
       this.cart[index].quantity -= 1;
     }
-    localStorage.setItem("cart",JSON.stringify(this.cart));
+    this.updateCart()
 
 
   }
@@ -36,11 +36,19 @@ export class CartComponent implements OnInit {
     if (this.cart[index].quantity < 20) {
       this.cart[index].quantity += 1;
     }
-    localStorage.setItem("cart",JSON.stringify(this.cart));
-
+    this.updateCart()
   }
   detactChange(){
-    localStorage.setItem("cart",JSON.stringify(this.cart));
+    this.updateCart()
 
   }
+
+  deleteProduct(index:number){
+    this.cart.splice(index, 1)
+    this.updateCart()
+  }
+  updateCart(){
+    localStorage.setItem("cart",JSON.stringify(this.cart));
+  }
 }
+

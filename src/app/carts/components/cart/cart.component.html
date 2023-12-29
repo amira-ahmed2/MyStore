@@ -22,7 +22,7 @@
 
           </div>
           <p>Total: {{ item.item.price * item.quantity}} LE</p>
-          <button type="button" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-danger" (click)="deleteProduct(index)">Delete</button>
         </div>
       </div>
       <div class="py-5 d-flex align-items-center justify-content-end flex-wrap">
