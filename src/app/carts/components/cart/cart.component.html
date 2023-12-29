@@ -12,10 +12,10 @@
 
       </div>
       <div *ngFor="let item of cart ; let index = index" class="cart-item">
-        <img [src]="item.item.image" alt="{{ item.title }}" class="cart-item-image">
+        <img [src]="item.item.image" alt="{{ item.item.title }}" class="cart-item-image">
         <div class="cart-item-details">
           <h4>{{ item.item.title }}</h4>
-          <p>Price: {{ item.item.price }} LE</p>
+          <p>Price: {{ item.item.price|currency }}</p>
           <div class="d-flex flex-lg-nowrap flex-wrap  align-items-center col-12">
             <p class="pt-3 pe-2"> Quantity: </p>
             <button class="btn btn-dark" type="button" (click)="addAmount(index)">+</button>
@@ -24,12 +24,12 @@
             <button class="btn btn-dark" type="button" (click)="minAmount(index)">-</button>
 
           </div>
-          <p>Total: {{ item.item.price * item.quantity}} LE</p>
+          <p>Total: {{ item.item.price * item.quantity |currency }} </p>
           <button type="button" class="btn btn-danger" (click)="deleteProduct(index)">Delete</button>
         </div>
       </div>
       <div class="py-5 d-flex align-items-center justify-content-end flex-wrap">
-        <p class=" pe-3 pt-3">Total: {{ calculateTotal() }} LE</p>
+        <p class=" pe-3 pt-3">Total: {{ calculateTotal() |currency }}</p>
         <button type="button" class="btn btn-success" (click)="addCart()">Order Now</button>
 
       </div>

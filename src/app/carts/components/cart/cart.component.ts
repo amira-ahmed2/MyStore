@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/shared/model/product';
-import { ProductsCartI } from 'src/app/shared/model/products-cart-i';
+import { CartI } from 'src/app/shared/model/cart-i';
 import { CartsService } from '../../services/carts.service';
+import { CartProductsI } from 'src/app/shared/model/cart-products-i';
 
 @Component({
   selector: 'app-cart',
@@ -9,8 +10,8 @@ import { CartsService } from '../../services/carts.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  model!:ProductsCartI
-  cart: any[]=[]
+  model!:CartI
+  cart: CartProductsI[]=[]
   successOrder:boolean = false
 
   constructor(private service:CartsService){}
@@ -82,7 +83,7 @@ export class CartComponent implements OnInit {
       this.successOrder = true
       setTimeout(() => {
         this.successOrder = false;
-      }, 10000); // 10 seconds in milliseconds
+      }, 5000); // 10 seconds in milliseconds
   
     },error:(er)=>{
       alert(er.massege);

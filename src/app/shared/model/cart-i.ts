@@ -1,6 +1,6 @@
 import { Data } from "@angular/router";
 
-export interface ProductsCartI {
+export interface CartI {
     userId:number,
     date:Data,
     products:{}
