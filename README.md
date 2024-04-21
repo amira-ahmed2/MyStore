@@ -1,6 +1,9 @@
 # MyStore
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.9.
+It is a simple store to display products, add them to the cart, and view
+product details, and I used the API https://fakestoreapi.com/
+, HTML Angular, Typescript, Css3, Rest_API, and Bootstrap5
 
 ## Development server
 
